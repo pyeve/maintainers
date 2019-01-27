@@ -13,6 +13,8 @@ Though it is still a *draft*.
   `git log --graph --decorate --all --oneline`
 - "Now is better than never." is imperative regarding changelogs and authors
   lists.
+- The changelog shall be wrapped at 80 characters for readability on common 
+  devices.
 
 
 ## Variable names for the examples
@@ -32,7 +34,7 @@ The following placeholders are used below:
 2. Make sure to work on the up-to-date `master` branch:
    `git checkout master && git pull <remote> master`
 3. Fetch the desired pull request's changes:
-   `git fetch <remote> pull/<pr_id>/head:pull_<pr_ud>`
+   `git fetch <remote> pull/<pr_id>/head:pull_<pr_id>`
 4. Check it out:
    `git checkout pull_<pr_id>`
 5. Align it with the state of the `master` branch:
@@ -41,11 +43,11 @@ The following placeholders are used below:
    issues in the "Unreleased" section of the changelog and that all involved
    contributors are mentioned in the authors list. Mind to commit adjustments.
 7. Push the current state to trigger jobs on the CI:
-   `git push <remote> pull_<pr_id>`
+   `git push <remote> pull_<pr_id>`.
    Depending on the changes and available interpreters, local tests may be
    sufficient or even better.
 8. Actually merge and publish the changes:
-   `git checkout master && git merge --no-ff pull_<pr_id> && git push <remote> pull_<pr_id>`
+   `git checkout master && git merge --no-ff pull_<pr_id> && git push <remote> master`
 9. If applicable, proceed with "Backporting fixes" below. If so, you may repeat
    this flow with other pull requests before.
 
