@@ -12,7 +12,7 @@ Though it is still a *draft*.
   merge events, that can be explored with
   `git log --graph --decorate --all --oneline`
 - "Now is better than never." is imperative regarding changelogs and authors
-  lists.
+  lists and especially with respect to backport fixes to maintenance branches.
 - The changelog shall be wrapped at 80 characters for readability on common 
   devices.
 
@@ -78,6 +78,8 @@ The following placeholders are used below:
    `git checkout <major>.<minor>.x && git pull <remote> <major>.<minor>.x`
 3. Apply the commits:
    `git cherry-pick <hash>...`
+  - If a commit is not available locally, fetch the corresponding pull request's objects:
+    `git fetch <remote> pull/<pr id>/head`
 4. Run tests and update the changelog.
 5. Publish the backported changes:
    `git push <remote> <major>.<minor>.x`
